@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Smart Canteen - Order Food</title>
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <div class="topbar">
+    <div class="brand">SMART <span>CANTEEN</span></div>
+    <button class="cart-btn" onclick="openCart()">
+      🛒 Cart <span class="cart-count" id="cartCount">0</span>
+    </button>
+  </div>
+
+  <div class="categories" id="categoryTabs"></div>
+
+  <div class="menu-grid" id="menuGrid"></div>
+
+  <!-- Cart drawer -->
+  <div class="overlay" id="overlay" onclick="closeCart()"></div>
+  <div class="cart-drawer" id="cartDrawer">
+    <div class="cart-header">
+      <h3>Your Cart</h3>
+      <button onclick="closeCart()">✕</button>
+    </div>
+    <div class="cart-items" id="cartItemsList"></div>
+    <div class="cart-footer">
+      <div class="cart-total">
+        <span>Total</span>
+        <span id="cartTotalAmount">RM 0.00</span>
+      </div>
+      <input type="text" id="customerName" placeholder="Your name (optional)"
+        style="width:100%;padding:8px;border:1px solid #ddd;border-radius:6px;margin-bottom:10px;" />
+      <button class="place-order-btn" id="placeOrderBtn" onclick="handlePlaceOrder()">Place Order</button>
+    </div>
+  </div>
+
+  <div class="toast" id="toast"></div>
+
+  <script src="data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

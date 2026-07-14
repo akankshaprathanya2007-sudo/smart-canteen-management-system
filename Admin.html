@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Smart Canteen - Admin</title>
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<div class="admin-wrap">
+  <aside class="sidebar">
+    <div class="brand">CANTEEN <span>ADMIN</span></div>
+    <nav>
+      <button class="active" data-tab="dashboard" onclick="switchTab('dashboard')"><span class="label">📊 Dashboard</span></button>
+      <button data-tab="orders" onclick="switchTab('orders')"><span class="label">🧾 Orders</span></button>
+      <button data-tab="products" onclick="switchTab('products')"><span class="label">🍽 Products</span></button>
+    </nav>
+  </aside>
+
+  <main class="admin-main">
+
+    <!-- Dashboard tab -->
+    <section id="tab-dashboard">
+      <div class="admin-topline"><h1>Dashboard</h1></div>
+      <div class="stats-row" id="statsRow"></div>
+      <div class="panel">
+        <h2>Recent Orders</h2>
+        <table id="recentOrdersTable"></table>
+      </div>
+    </section>
+
+    <!-- Orders tab -->
+    <section id="tab-orders" style="display:none">
+      <div class="admin-topline"><h1>Orders</h1></div>
+      <div class="panel">
+        <table>
+          <thead>
+            <tr><th>Order ID</th><th>Customer</th><th>Items</th><th>Total</th><th>Status</th><th>Update</th></tr>
+          </thead>
+          <tbody id="ordersTableBody"></tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- Products tab -->
+    <section id="tab-products" style="display:none">
+      <div class="admin-topline"><h1>Products</h1></div>
+      <div class="panel">
+        <h2>Add New Product</h2>
+        <div class="add-form">
+          <input type="text" id="newName" placeholder="Item name" />
+          <input type="number" id="newPrice" placeholder="Price (RM)" min="0" step="0.5" />
+          <input type="text" id="newCategory" placeholder="Category (e.g. Lunch)" />
+          <input type="text" id="newEmoji" placeholder="Emoji e.g. 🍛" />
+          <input type="number" id="newStock" placeholder="Stock qty" min="0" />
+          <button onclick="handleAddProduct()">+ Add Product</button>
+        </div>
+        <table>
+          <thead>
+            <tr><th>Item</th><th>Category</th><th>Price</th><th>Stock</th><th>Status</th><th></th></tr>
+          </thead>
+          <tbody id="productsTableBody"></tbody>
+        </table>
+      </div>
+    </section>
+
+  </main>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script src="data.js"></script>
+<script src="admin.js"></script>
+</body>
+</html>
